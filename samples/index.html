@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Piecemaker Samples</title>
+</head>
+<body>
+  <div data-pieces="colorize" data-color="red">
+    Container to colorize | red
+  </div>
+  <div data-pieces="colorize smile" data-color="blue">
+    Container to colorize | blue
+  </div>
+
+  <script src="http://requirejs.org/docs/release/2.1.8/minified/require.js"></script>
+  <script>
+    require.config({
+      paths: {
+        'Piecemaker': '../lib/piecemaker',
+        'mediator-js': '//raw.github.com/ajacksified/Mediator.js/master/mediator.min',
+      }
+    })
+
+    require(['Piecemaker', 'mediator-js'], function (Piecemaker, mediator) {
+
+      new Piecemaker({ mediator: mediator })
+      mediator.publish('pieces:setup')
+
+    })
+  </script>
+</body>
+</html>
