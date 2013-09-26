@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Piecemaker Samples : Global</title>
+</head>
+<body>
+  <div data-pieces="colorize" data-color="red">
+    Container to colorize | red
+  </div>
+  <div data-pieces="colorize smile" data-color="blue">
+    Container to colorize | blue
+  </div>
+
+  <script>
+    // namespace
+    var App = {
+      pieces: {}
+    }
+  </script>
+
+  <script src="../lib/piecemaker.js"></script>
+  <script src="//rawgithub.com/ajacksified/Mediator.js/master/mediator.min.js"></script>
+
+  <script src="global_pieces/colorize.js"></script>
+  <script src="global_pieces/smile.js"></script>
+
+  <script>
+    var mediator = new Mediator()
+    new Piecemaker({
+      namespace: App.pieces,
+      mediator: mediator
+    })
+    mediator.publish('pieces:setup')
+  </script>
+</body>
+</html>
