@@ -11,9 +11,22 @@ h1 {
   font-weight: 100;
   margin-bottom: 0;
 }
+
 h2 {
   font-weight: 200;
   margin-top: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav a {
+  color: #903D3D;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
 }
 
 .container {
