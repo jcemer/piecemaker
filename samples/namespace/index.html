@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Piecemaker Samples : Global</title>
+  <title>Piecemaker Samples : Namespace</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <div data-pieces="colorize" data-color="red">
-    Container to colorize | red
+  <h1>Piecemaker Sample</h1>
+  <h2>Namespace</h2>
+  <div class="container" data-pieces="colorize" data-color="#903D3D">
+    Colorize
   </div>
-  <div data-pieces="colorize smile" data-color="blue">
-    Container to colorize | blue
+  <div class="container" data-pieces="colorize smile" data-color="#6FB269">
+    Colorize and Smile
   </div>
 
   <script>
@@ -28,8 +31,8 @@
   <script>
     var mediator = new Mediator()
     new Piecemaker({
-      namespace: App.pieces,
-      mediator: mediator
+      namespace : App.pieces,
+      mediator  : mediator
     })
     mediator.publish('pieces:setup')
   </script>

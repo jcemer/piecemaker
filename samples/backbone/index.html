@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Piecemaker Sample : AMD</title>
+  <title>Piecemaker Sample : Backbone</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <h1>Piecemaker Sample</h1>
-  <h2>AMD</h2>
-  <div class="container" data-pieces="colorize" data-color="#903D3D">
-    Colorize
-  </div>
-  <div class="container" data-pieces="colorize smile" data-color="#6FB269">
-    Colorize and Smile
-  </div>
+  <h2>Backbone</h2>
+  <ul class="tasks" data-pieces="todo"></ul>
 
   <script src="http://requirejs.org/docs/release/2.1.8/minified/require.js"></script>
   <script>
     require.config({
       paths: {
         'piecemaker'  : '../../lib/piecemaker',
+        'jquery'      : '//code.jquery.com/jquery-2.0.3.min',
+        'underscore'  : '//raw.github.com/amdjs/underscore/master/underscore-min',
+        'backbone'    : '//raw.github.com/amdjs/backbone/master/backbone-min',
         'mediator-js' : '//raw.github.com/ajacksified/Mediator.js/master/mediator.min'
       }
     })
