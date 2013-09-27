@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Piecemaker Samples: AMD</title>
+  <title>Piecemaker Samples: AMD with mediator</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <h1>Piecemaker Samples</h1>
-  <h2>AMD</h2>
+  <h2>AMD with mediator</h2>
   <div class="container" data-pieces="colorize" data-color="#903D3D">
     Colorize
   </div>
@@ -19,14 +19,15 @@
   <script>
     require.config({
       paths: {
-        'piecemaker': '../../lib/piecemaker'
+        'piecemaker'  : '../../lib/piecemaker',
+        'mediator-js' : '//raw.github.com/ajacksified/Mediator.js/master/mediator.min'
       }
     })
 
-    require(['piecemaker'], function (Piecemaker, mediator) {
+    require(['piecemaker', 'mediator-js'], function (Piecemaker, mediator) {
 
-      var piecemaker = new Piecemaker()
-      piecemaker.setup()
+      new Piecemaker({ mediator: mediator })
+      mediator.publish('pieces:setup')
 
     })
   </script>

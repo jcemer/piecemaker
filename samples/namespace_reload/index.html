@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Piecemaker Samples: Namespace</title>
+  <title>Piecemaker Samples: Namespace and Reload</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <h1>Piecemaker Samples</h1>
-  <h2>Namespace</h2>
+  <h2>Namespace and Reload</h2>
   <div class="container" data-pieces="colorize" data-color="#903D3D">
     Colorize
   </div>
-  <div class="container" data-pieces="colorize smile" data-color="#6FB269">
-    Colorize and Smile
-  </div>
+
+  <script type="template">
+    <div class="container" data-reload data-pieces="colorize smile" data-color="#6FB269">
+      R: Colorize and Smile
+    </div>
+  </script>
 
   <script>
     // namespace
@@ -32,6 +35,14 @@
       namespace : App.pieces
     })
     piecemaker.setup()
+
+    setTimeout(function () {
+      var template = document.querySelector('[type="template"]')
+      template.outerHTML = template.innerHTML
+
+      // call setup
+      piecemaker.setup(document.querySelector('[data-reload]'))
+    }, 1000)
   </script>
 </body>
 </html>
